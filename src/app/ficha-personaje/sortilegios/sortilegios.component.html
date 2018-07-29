@@ -1,0 +1,18 @@
+<div class="sortilegios-container">
+  <div class="scampo">LISTAS DE SORTILEGIOS</div>
+  <div class="scampo">PROB.</div>
+  <div class="scampo">&nbsp;</div>
+  <div class="scampo">&nbsp;</div>
+  <ng-template ngFor let-lista [ngForOf]="listas" let-i="index">
+    <div class="scampo">{{i+1}})
+      <input type="text" class="input_sortilegios" [(ngModel)]="listas[i].lista" />
+    </div>
+    <div class="scampo">
+      (
+      <input type="text" class="input_sortilegios prob_sortilegio" [(ngModel)]="listas[i].prob" />)
+    </div>
+  </ng-template>
+</div>
+<div>
+  <a (click)="onNuevaLista()">Añadir Lista</a>
+</div>

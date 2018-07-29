@@ -1,0 +1,18 @@
+<div>
+  <div class="HOJA">RS-1 - HOJA DE PERSONAJE</div>
+  <div class="idiomas-container">
+    <div class="icampo">IDIOMAS</div>
+    <div class="icampo">GRADO</div>
+    <div class="icampo">&nbsp;</div>
+    <div class="icampo">&nbsp;</div>
+    <ng-template ngFor let-idioma [ngForOf]="idiomas" let-i="index">
+      <div class="icampo">{{i+1}})
+        <input type="text" class="input_idiomas" [(ngModel)]="idiomas[i].idioma" />
+      </div>
+      <div class="icampo">
+        <input type="text" class="input_idiomas grado_idioma" [(ngModel)]="idiomas[i].grado" />
+      </div>
+    </ng-template>
+  </div>
+  <div><a (click)="onNuevoIdioma()">Añadir idioma</a></div>
+</div>

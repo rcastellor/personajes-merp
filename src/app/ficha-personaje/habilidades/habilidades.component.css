@@ -1,0 +1,45 @@
+div {
+    font-size: 12px;
+}
+
+.grid-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 110px 140px 99px 500px;
+    grid-template-rows: auto;
+    grid-template-areas: "GRADO GRADO GRADO BONIFICACIONES"
+                        ". . . .";
+}
+
+  
+.GRADO {
+    grid-area: GRADO;
+    text-align: center;
+}
+
+.BONIFICACIONES {
+    grid-area: BONIFICACIONES;
+    text-align: center;
+    border-left: solid 1px black;
+}
+
+.TITULO_BON {
+    grid-area: TITULO_BON;
+    text-align: center;
+}
+.HABILIDAD {
+    grid-column: 1 /5;
+}
+
+.TITULO_HAB {
+    grid-column: 1 /4;
+    padding: 5px;
+}
+
+.grid-grados {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 71px 71px 71px 71px 71px 71px 71px;
+    grid-template-rows: auto;
+    border: solid 1px black;
+}

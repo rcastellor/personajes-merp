@@ -1,0 +1,48 @@
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 300px 50px 200px 300px;
+  grid-template-rows: 250px 50px 150px 1fr;
+  grid-template-areas: "GENERALES IDIOMAS IDIOMAS SORTILEGIOS"
+                    "BONIFICACIONES BONIFICACIONES DIBUJO SORTILEGIOS"
+                    "BONIFICACIONES BONIFICACIONES DOMINIO DOMINIO"
+                    "HABILIDADES HABILIDADES HABILIDADES HABILIDADES";
+
+}
+
+.GENERALES {
+    grid-area: GENERALES;
+    border: solid 1px black;
+}
+
+.IDIOMAS {
+    grid-area: IDIOMAS;
+    border: solid 1px black;
+}
+
+.SORTILEGIOS {
+    grid-area: SORTILEGIOS;
+    border: solid 1px black;
+}
+
+.BONIFICACIONES {
+    grid-area: BONIFICACIONES;
+    border: solid 1px black;
+}
+
+.DOMINIO {
+    grid-area: DOMINIO;
+    border: solid 1px black;
+}
+
+.DIBUJO {
+    grid-area: DIBUJO;
+    border: solid 1px black;
+}
+
+
+.HABILIDADES {
+    grid-area: HABILIDADES;
+    border: solid 1px black;
+}
+

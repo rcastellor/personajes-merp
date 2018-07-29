@@ -1,0 +1,46 @@
+<div class="generales-container">
+  <div class="gtitulo">NOMBRE: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="nombre" [(ngModel)]="datos.nombre" />
+  </div>
+  <div class="gtitulo">RAZA: </div>
+  <div class="gcampo">
+    <select name="raza" class="select_gcampo" [(ngModel)]="raza" (change)="onChangeRaza()">
+      <option *ngFor="let raza of (razas$ | async)" value='{{raza.id}}'>{{raza.descripcion}}</option>
+    </select>
+  </div>
+  <div class="gtitulo">ESTATURA: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="estatura" [(ngModel)]="datos.estatura" />
+  </div>
+  <div class="gtitulo">PESO: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="peso" [(ngModel)]="datos.peso" />
+  </div>
+  <div class="gtitulo">PELO: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="pelo" [(ngModel)]="datos.pelo"/>
+  </div>
+  <div class="gtitulo">OJOS: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="ojos" [(ngModel)]="datos.ojos"/>
+  </div>
+  <div class="gtitulo">ACTITUD: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="actitud" [(ngModel)]="datos.actitud"/>
+  </div>
+  <div class="gtitulo">ESPECIAL: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" name="especial" [(ngModel)]="datos.especial"/>
+  </div>
+  <div class="gtitulo">PROFESION: </div>
+  <div class="gcampo">
+    <select name="profesion" class="select_gcampo" [(ngModel)]="profesion" (change)="onChangeProfesion()" [disabled]="!raza">
+      <option *ngFor="let profesion of (profesiones$ | async)" value='{{profesion.id}}'>{{profesion.descripcion}}</option>
+    </select>
+  </div>
+  <div class="gtitulo">NIVEL: </div>
+  <div class="gcampo">
+    <input type="text" class="input_gcampo" />
+  </div>
+</div>

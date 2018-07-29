@@ -1,0 +1,27 @@
+.generales-container {
+    display: grid;
+    grid-template-columns: 75px 215px;
+    padding: 5px;
+    font-size: 10px;
+}
+
+.gtitulo {
+    text-align: right;
+}
+
+.gcampo {
+    padding: 2px;
+}
+.input_gcampo {
+    border: solid 0px;
+    border-bottom: solid 1px;
+    font-size: 10px;
+    width: 90%;
+}
+
+.select_gcampo {
+    border: solid 0px;
+    border-bottom: solid 1px;
+    width: 90%;
+    font-size: 10px;
+}

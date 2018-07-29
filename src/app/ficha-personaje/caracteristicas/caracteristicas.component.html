@@ -1,0 +1,37 @@
+<div style="text-align: center">BONIFICACIONES</div>
+<div class="caracteristicas-container">
+  <div>CARACTERISTICAS</div>
+  <div>Abr.</div>
+  <div>Valor</div>
+  <div>Normal</div>
+  <div>Raza</div>
+  <div>Total</div>
+  <ng-template ngFor let-car [ngForOf]="caracteristicas" let-i="index">
+    <div class="ccampo">{{car.caracteristica}}</div>
+    <div class="ccampo">{{car.abr}}</div>
+    <div class="ccampo">
+      <input type="text"
+              [(ngModel)]="caracteristicas[i].valor"
+              class="input_caracteristica"
+              (change)="calculaTotal(i)"/>
+    </div>
+    <div class="ccampo">
+      <input type="text"
+              [value]="caracteristicas[i].normal"
+              class="input_caracteristica" readonly/>
+    </div>
+    <div class="ccampo">
+      <input type="text"
+              [value]="caracteristicas[i].raza"
+              class="input_caracteristica" readonly/>
+    </div>
+    <div class="ccampo">
+      <input type="text"
+              [value]="caracteristicas[i].total"
+              class="input_caracteristica" readonly/>
+    </div>
+  </ng-template>
+</div>
+<div class="boton_generar">
+  <button value="generar" class="button" (click)="onGeneraTiradas()">Generar</button>
+</div>

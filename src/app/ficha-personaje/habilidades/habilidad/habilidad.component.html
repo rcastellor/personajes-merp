@@ -1,0 +1,29 @@
+<div class="grid-container">
+  <div>{{habilidad.descripcion}}</div> 
+  <div><input type="checkbox" 
+    *ngFor='let item of controles5; let i = index'
+    [checked]="item.activado"
+    [disabled]="item.readonly"
+    [class.gris]="item.readonly"
+    [class.negro]="!item.readonly"
+    (change)="seleccionaGrado5(i)"/></div>
+  <div style="border-right: solid 1px black;"><input type="checkbox" 
+    *ngFor='let item of controles2; let i = index'
+    [checked]="item.activado"
+    [disabled]="item.readonly"
+    [class.gris]="item.readonly"
+    [class.negro]="!item.readonly"
+    (change)="seleccionaGrado2(i)"/></div>
+    <div class="grid-bonificaciones">
+      <div class="centered" style="padding-left: 10px;"><input type="text" [value]="habilidad.valorGrado" readonly></div>
+      <div class="right" *ngIf="habilidad.aplicaCar">{{habilidad.abrCar}}: <input type="text" [value]="habilidad.caracteristica" readonly></div>
+      <div class="right" *ngIf="!habilidad.aplicaCar">xxx</div>
+      <div class="centered" *ngIf="habilidad.aplicaProfesion"><input type="text" [value]="habilidad.profesion" readonly></div>
+      <div class="centered" *ngIf="!habilidad.aplicaProfesion">xx</div>
+      <div class="centered"><input type="text" [(ngModel)]="habilidad.objeto" (change)="onChange()"></div>
+      <div class="centered"><input type="text" [(ngModel)]="habilidad.especial" (change)="onChange()"></div>
+      <div class="centered" *ngIf="habilidad.especial2sl">{{habilidad.especial2 | signedNumber}}</div>
+      <div class="centered" *ngIf="!habilidad.especial2sl"><input type="text" [(ngModel)]="habilidad.especial2" (change)="onChange()"></div>
+      <div class="centered" style="padding-right: 10px;"><span>{{habilidad.valorTotal | signedNumber}}</span></div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <div class="GRADO">
+    GRADOS DE HABILIDAD
+  </div>
+  <div class="BONIFICACIONES">
+    BONIFICACIONES DE HABILIDAD
+  </div>
+  <div>HABILIDADES</div>
+  <div>GRADOS 5%</div>
+  <div>GRADOS 2%</div>
+  <div class="grid-grados">
+    <div>Grado</div>
+    <div>Carac.</div>
+    <div>Profesión</div>
+    <div>Objeto</div>
+    <div>Especial</div>
+    <div>Especial</div>
+    <div>Total</div>
+  </div>
+  <ng-template ngFor let-grupo [ngForOf]="habilidades" let-i="index">
+    <div class="TITULO_HAB">{{titulos[i]}}</div>
+    <div style="border-left: solid 1px black"></div>
+      <ng-template ngFor let-habilidad [ngForOf]="grupo" let-i="index">
+        <div class='HABILIDAD'>
+          <app-habilidad [habilidad]="habilidad"></app-habilidad>
+        </div>
+      </ng-template>
+  </ng-template>
+  <div> CUADRO DEFENSIVAS</div>
+  <div> SECUNDARIAS </div>
+</div>

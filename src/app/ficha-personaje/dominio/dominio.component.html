@@ -1,0 +1,28 @@
+<div class="dominio-container">
+  <div class="dtitulo">DOMINIO: </div>
+  <div>
+    <select class="select_dcampo"
+        name="dominio"
+        [(ngModel)]="dominio.dominio"
+        placeholder="Seleccione el dominio"
+        (change)="onDominioChange()">
+      <option *ngFor="let dom of (dominiosPermitidos$ | async)" [value]="dom">{{dom}}</option>
+    </select>
+  </div>
+  <div class="dtitulo">PUNTOS DE PODER: </div>
+  <div>
+    <input type="text" class="input_dcampo" [value]="dominio.ppoder" readonly/>
+  </div>
+  <div class="dtitulo">PUNTOS DE EXPERIENCIA: </div>
+  <div>
+    <input type="text" class="input_dcampo" />
+  </div>
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+  <div class="dtitulo">PENALIZACION POR CARGA: </div>
+  <div class="carga">FUE:
+    <input type="text" class="dcampo" [value]="fuerza" readonly/> +
+    <input type="text" class="dcampo" /> =
+    <input type="text" class="dcampo" readonly/>
+  </div>
+</div>
