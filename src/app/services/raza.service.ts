@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { Raza, ENANO, CAMPESINO } from '../modelos/raza.model';
 import { FUE, AGI, CON, INT, I, PRE, APA } from '../modelos/caracteristicas.model';
+import { MOVIMIENTO, ARMAS, GENERALES, SUBTERFUGIO, MAGICAS, OTRAS_HABILIDADES } from '../modelos/habilidad.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class RazaService {
   private _bonificacionRazas = [];
   private _idiomasRazas = [];
   private _dominiosRaza: string[][];
+  private _habilidadesRaza: number[][][];
 
 
   constructor() {
@@ -51,6 +53,23 @@ export class RazaService {
     this._dominiosRaza = [];
     this._dominiosRaza[ENANO] = ['CANALIZACION'];
     this._dominiosRaza[CAMPESINO] = ['ESENCIA', 'CANALIZACION'];
+
+    this._habilidadesRaza = [];
+    this._habilidadesRaza[ENANO] = [];
+    this._habilidadesRaza[ENANO][MOVIMIENTO] = [1, 0, 1, 3, 0];
+    this._habilidadesRaza[ENANO][ARMAS] = [0, 4, 0, 1, 0, 0];
+    this._habilidadesRaza[ENANO][GENERALES] = [1, 0, 0, 0];
+    this._habilidadesRaza[ENANO][SUBTERFUGIO] = [0, 0, 1, 1];
+    this._habilidadesRaza[ENANO][MAGICAS] = [0, 0, 0];
+    this._habilidadesRaza[ENANO][OTRAS_HABILIDADES] = [2, 3];
+
+    this._habilidadesRaza[CAMPESINO] = [];
+    this._habilidadesRaza[CAMPESINO][MOVIMIENTO] = [1, 1, 1, 1, 0];
+    this._habilidadesRaza[CAMPESINO][ARMAS] = [1, 0, 0, 1, 1, 1];
+    this._habilidadesRaza[CAMPESINO][GENERALES] = [0, 1, 1, 0];
+    this._habilidadesRaza[CAMPESINO][SUBTERFUGIO] = [0, 1, 0, 0];
+    this._habilidadesRaza[CAMPESINO][MAGICAS] = [0, 0, 0];
+    this._habilidadesRaza[CAMPESINO][OTRAS_HABILIDADES] = [1, 2];
   }
 
 
@@ -90,5 +109,8 @@ export class RazaService {
 
   obtenDominioRaza(raza: number) {
     return this._dominiosRaza[raza];
+  }
+  obtenHabilidadesRaza(raza: number) {
+    return this._habilidadesRaza[raza];
   }
 }

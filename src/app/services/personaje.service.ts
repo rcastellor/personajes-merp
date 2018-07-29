@@ -52,6 +52,10 @@ export class PersonajeService {
     return this._data.habilidades;
   }
 
+  obtenHabilidadesDefensivas() {
+    return this._data.tr;
+  }
+
   cambioEnDominio() {
     if (this._data.dominio.dominio === 'ESENCIA') {
       this._data.dominio.ppoder = calculaPoder(Number(this._data.caracteristicas[INT].valor));
@@ -80,6 +84,14 @@ export class PersonajeService {
     if (this._data.datos.profesion) {
       this.cambiaDominioPermitido(raza, this._data.datos.profesion.id);
     }
+    const habilidades = this.rzService.obtenHabilidadesRaza(raza);
+    for (let k = 0; k < habilidades.length; k++) {
+      for (let j = 0; j < habilidades[k].length; j++) {
+        this._data.habilidades[k][j].gradoRaza = habilidades[k][j];
+        this._data.habilidades[k][j].reset();
+      }
+    }
+    this._raza$.next(raza);
   }
 
   cambiaDominioPermitido(raza: number, profesion: number) {

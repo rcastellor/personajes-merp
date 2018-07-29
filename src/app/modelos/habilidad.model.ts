@@ -155,4 +155,10 @@ export class Habilidad {
         this.valorGrado = this.bonGrado();
         this.valorTotal = this.total();
     }
+
+    reset() {
+        this.grado = this.gradoRaza;
+        this.valorGrado = this.bonGrado();
+        this.valorTotal = this.total();
+    }
 }

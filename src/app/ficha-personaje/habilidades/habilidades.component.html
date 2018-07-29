@@ -26,6 +26,16 @@
         </div>
       </ng-template>
   </ng-template>
-  <div> CUADRO DEFENSIVAS</div>
-  <div> SECUNDARIAS </div>
+  <div class="CUADRO_DEFENSIVAS">
+    <div class="grid-defensivas">
+      <div class="DEF">
+        <app-defensivas></app-defensivas>
+      </div>
+      <div *ngFor="let habilidad of defensivas">{{habilidad.descripcion}}</div>
+    </div>
+  </div>
+  <div style="border-left: solid 1px black; padding-top: 20px;">
+    <app-habilidad-defensiva [habilidad]="habilidad" *ngFor="let habilidad of defensivas"></app-habilidad-defensiva>
+  </div>
+  <div class="TITULO_HAB">HABILIDADES SECUNDARIAS</div>
 </div>

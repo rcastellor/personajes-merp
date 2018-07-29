@@ -19,6 +19,7 @@ export class HabilidadComponent implements OnInit, OnDestroy {
   controles2: Control[];
   gradoSeleccionado: number;
   caracteristica: Subscription;
+  raza: Subscription;
 
   constructor(private pjService: PersonajeService) { }
 
@@ -39,12 +40,31 @@ export class HabilidadComponent implements OnInit, OnDestroy {
         this.habilidad.valorTotal = this.habilidad.total();
       });
     }
-
+    this.raza = this.pjService.razaObs$.subscribe( raza => {
+      this.inicializaControles();
+    });
   }
 
   ngOnDestroy() {
     if (this.caracteristica) {
       this.caracteristica.unsubscribe();
+    }
+    this.raza.unsubscribe();
+  }
+
+  inicializaControles() {
+    for (let i = 0; i < this.controles5.length; i++) {
+      if (i < this.habilidad.gradoRaza) {
+        this.controles5[i].readonly = true;
+        this.controles5[i].activado = true;
+      } else {
+        this.controles5[i].readonly = false;
+        this.controles5[i].activado = false;
+      }
+    }
+    for (const control of this.controles2) {
+      control.readonly = false;
+      control.activado = false;
     }
   }
 
@@ -91,7 +111,6 @@ export class HabilidadComponent implements OnInit, OnDestroy {
       }
     }
     this.habilidad.grado = this.gradoSeleccionado + 1;
-    console.log('grado seleccionado ', this.habilidad.grado);
     this.habilidad.valorGrado = this.habilidad.bonGrado();
     this.habilidad.valorTotal = this.habilidad.total();
   }

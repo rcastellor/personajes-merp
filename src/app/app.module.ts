@@ -11,9 +11,9 @@ import { SortilegiosComponent } from './ficha-personaje/sortilegios/sortilegios.
 import { DominioComponent } from './ficha-personaje/dominio/dominio.component';
 import { HabilidadesComponent } from './ficha-personaje/habilidades/habilidades.component';
 import { HabilidadComponent } from './ficha-personaje/habilidades/habilidad/habilidad.component';
-import { BonificacionesHabilidadesComponent } from './ficha-personaje/bonificaciones-habilidades/bonificaciones-habilidades.component';
-import { BonHabilidadComponent } from './ficha-personaje/bonificaciones-habilidades/bon-habilidad/bon-habilidad.component';
 import { SignedNumberPipe } from './shared/signed-number.pipe';
+import { HabilidadDefensivaComponent } from './ficha-personaje/habilidades/habilidad-defensiva/habilidad-defensiva.component';
+import { DefensivasComponent } from './ficha-personaje/habilidades/defensivas/defensivas.component';
 
 
 @NgModule({
@@ -27,9 +27,9 @@ import { SignedNumberPipe } from './shared/signed-number.pipe';
     DominioComponent,
     HabilidadesComponent,
     HabilidadComponent,
-    BonificacionesHabilidadesComponent,
-    BonHabilidadComponent,
-    SignedNumberPipe
+    SignedNumberPipe,
+    HabilidadDefensivaComponent,
+    DefensivasComponent
   ],
   imports: [
     BrowserModule,

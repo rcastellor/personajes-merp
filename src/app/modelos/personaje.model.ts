@@ -14,7 +14,9 @@ import { Habilidad,
     TIRADA_MM,
     TIRADA_BO,
     TIRADA_ME,
-    TIRADA_PE
+    TIRADA_PE,
+    TIRADA_BD,
+    TIRADA_TR
 } from './habilidad.model';
 
 export class Personaje {
@@ -86,7 +88,29 @@ export class Personaje {
             new Habilidad('Desarrollo físico', 'CON', 15, TIRADA_PE, true, 5),
         ];
         this.habilidades[OTRAS_HABILIDADES][1].aplicaTiradas = true;
-        this.tr = [];
+        this.tr = [
+            new Habilidad('Sortilegios de base', 'xxx', 0, TIRADA_BO),
+            new Habilidad('Liderazgo e influencia', 'PRE', 0, TIRADA_ME),
+            new Habilidad('Bonificación defensiva', 'AGI', 0, TIRADA_BD),
+            new Habilidad('TR Esencia', 'INT', 0, TIRADA_TR),
+            new Habilidad('TR Canalización', 'I', 0, TIRADA_TR),
+            new Habilidad('TR Venenos', 'CON', 0, TIRADA_TR),
+            new Habilidad('TR Enfermedad', 'CON', 0, TIRADA_TR),
+        ];
+        this.tr[0].aplicaCar = false;
+        this.tr[0].aplicaGrado = false;
+        this.tr[1].aplicaGrado = false;
+        this.tr[1].aplicaProfesion = false;
+        this.tr[2].aplicaGrado = false;
+        this.tr[2].aplicaProfesion = false;
+        this.tr[3].aplicaGrado = false;
+        this.tr[3].aplicaProfesion = false;
+        this.tr[4].aplicaGrado = false;
+        this.tr[4].aplicaProfesion = false;
+        this.tr[5].aplicaGrado = false;
+        this.tr[5].aplicaProfesion = false;
+        this.tr[6].aplicaGrado = false;
+        this.tr[6].aplicaProfesion = false;
         this.secundarias = [];
     }
 }

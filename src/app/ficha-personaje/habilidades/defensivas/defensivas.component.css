@@ -1,15 +1,18 @@
-.grid-container {
+.grid-defensivas {
     display: grid;
     height: 100%;
-    grid-template-columns: 71px 71px 71px 71px 71px 71px 71px;
+    grid-template-columns: auto auto;
     grid-template-rows: auto;
-    grid-template-areas: ". . . . . . .";
+    grid-template-areas: ". .";
+    border: solid 1px black;
+    padding: 5px;
 }
+
 
 input[type=text] {
     border: solid 0px;
     border-bottom: solid 1px;
     font-size: 10px;
-    width: 50%;
+    width: 50px;
     text-align: center;
-}
+  }

@@ -43,3 +43,29 @@ div {
     grid-template-rows: auto;
     border: solid 1px black;
 }
+
+.CUADRO_DEFENSIVAS {
+    grid-column: 1 /4;
+    padding-top: 20px;
+}
+
+.grid-defensivas {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 200px 149px;
+    grid-template-rows: auto;
+    grid-template-areas: "DEF ."
+                        "DEF ."
+                        "DEF ."
+                        "DEF ."
+                        "DEF ."
+                        "DEF ."
+                        "DEF .";
+}
+
+.DEF {
+    grid-area: DEF;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+}

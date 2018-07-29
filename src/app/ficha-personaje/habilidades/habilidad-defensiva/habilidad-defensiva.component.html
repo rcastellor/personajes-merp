@@ -1,0 +1,12 @@
+<div class="grid-bonificaciones">
+  <div class="centered" style="padding-left: 10px;">xx</div>
+  <div class="right" *ngIf="habilidad.aplicaCar">{{habilidad.abrCar}}: <input type="text" [value]="habilidad.caracteristica" readonly></div>
+  <div class="right" *ngIf="!habilidad.aplicaCar">xxx</div>
+  <div class="centered" *ngIf="habilidad.aplicaProfesion"><input type="text" [value]="habilidad.profesion" readonly></div>
+  <div class="centered" *ngIf="!habilidad.aplicaProfesion">xx</div>
+  <div class="centered"><input type="text" [(ngModel)]="habilidad.objeto" (change)="onChange()"></div>
+  <div class="centered"><input type="text" [(ngModel)]="habilidad.especial" (change)="onChange()"></div>
+  <div class="centered" *ngIf="habilidad.especial2sl">{{habilidad.especial2 | signedNumber}}</div>
+  <div class="centered" *ngIf="!habilidad.especial2sl"><input type="text" [(ngModel)]="habilidad.especial2" (change)="onChange()"></div>
+  <div class="centered" style="padding-right: 10px;"><span>{{habilidad.valorTotal | signedNumber}}</span></div>
+</div>
