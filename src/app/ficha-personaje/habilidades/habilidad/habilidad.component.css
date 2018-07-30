@@ -30,8 +30,9 @@
 
   .gris {
     background-color: grey;
+    cursor: auto;
   }
-  .negro:checked {
+  .negro {
     background-color: black;
   }
 
@@ -54,4 +55,13 @@ input[type=text] {
 
 .right {
   text-align: right;
+}
+
+.control-grado {
+  cursor: pointer;
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin:1px;
+  border: solid 1px black;
 }

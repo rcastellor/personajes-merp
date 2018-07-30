@@ -1,19 +1,17 @@
 <div class="grid-container">
   <div>{{habilidad.descripcion}}</div> 
-  <div><input type="checkbox" 
+  <div><div  
     *ngFor='let item of controles5; let i = index'
-    [checked]="item.activado"
-    [disabled]="item.readonly"
+    style="cursor: pointer; display: inline-block; width: 9px; height: 9px; margin:1px; border: solid 1px black;"
     [class.gris]="item.readonly"
-    [class.negro]="!item.readonly"
-    (change)="seleccionaGrado5(i)"/></div>
-  <div style="border-right: solid 1px black;"><input type="checkbox" 
+    [class.negro]="item.activado && !item.readonly"
+    (click)="seleccionaGrado5(i)"></div></div>
+  <div style="border-right: solid 1px black;"><div 
     *ngFor='let item of controles2; let i = index'
-    [checked]="item.activado"
-    [disabled]="item.readonly"
+    style="cursor: pointer; display: inline-block; width: 9px; height: 9px; margin:1px; border: solid 1px black;"
     [class.gris]="item.readonly"
-    [class.negro]="!item.readonly"
-    (change)="seleccionaGrado2(i)"/></div>
+    [class.negro]="item.activado && !item.readonly"
+    (click)="seleccionaGrado2(i)"></div></div>
     <div class="grid-bonificaciones">
       <div class="centered" style="padding-left: 10px;"><input type="text" [value]="habilidad.valorGrado" readonly></div>
       <div class="right" *ngIf="habilidad.aplicaCar">{{habilidad.abrCar}}: <input type="text" [value]="habilidad.caracteristica" readonly></div>

@@ -73,6 +73,9 @@ export class HabilidadComponent implements OnInit, OnDestroy {
   }
 
   seleccionaGrado5(index: number) {
+    if (index < this.habilidad.gradoRaza) {
+      return;
+    }
     if ( this.controles5[index].activado === true) {
       this.gradoSeleccionado = index - 1;
     } else {
