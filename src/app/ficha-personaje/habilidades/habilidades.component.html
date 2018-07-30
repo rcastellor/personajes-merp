@@ -37,7 +37,7 @@
   <div style="border-left: solid 1px black; padding-top: 20px;">
     <app-habilidad-defensiva [habilidad]="habilidad" *ngFor="let habilidad of defensivas"></app-habilidad-defensiva>
   </div>
-  <div class="TITULO_HAB">HABILIDADES SECUNDARIAS</div>
+  <div class="TITULO_HAB">HABILIDADES SECUNDARIAS&nbsp;<a (click)="onNuevaSecundaria()" style="cursor: pointer"><i class="fas fa-plus-square"></i></a><span style="font-size: 10px;"> Añadir Secundaria</span></div>
   <div style="border-left: solid 1px black"></div>
   <ng-template ngFor let-habilidad [ngForOf]="secundarias" let-i="index">
       <div class='HABILIDAD'>

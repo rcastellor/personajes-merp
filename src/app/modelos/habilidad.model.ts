@@ -76,6 +76,7 @@ export class Habilidad {
     especial2sl: boolean;
     tipoTirada: number;
     valorTotal: number;
+    descripcionLibre: boolean;
 
     bonGrado(): number {
         let valor = 0;
@@ -131,6 +132,7 @@ export class Habilidad {
                 aplicaProfesion = true,
                 especial2 = null) {
         this.descripcion = descripcion;
+        this.descripcionLibre = false;
         this.abrCar = abr;
         this.gradoMaximo = gradoMaximo;
         this.tipoTirada = tipoTirada;

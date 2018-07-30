@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonajeService } from '../services/personaje.service';
 
 @Component({
   selector: 'app-ficha-personaje',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FichaPersonajeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pjService: PersonajeService) { }
 
   ngOnInit() {
   }
 
+  onGuardarPersonaje() {
+    console.log(JSON.stringify(this.pjService.obtenPersonaje()));
+  }
 }

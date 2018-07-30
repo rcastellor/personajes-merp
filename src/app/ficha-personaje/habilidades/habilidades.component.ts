@@ -36,4 +36,11 @@ export class HabilidadesComponent implements OnInit {
     this.secundarias = this.pjService.obtenHabilidadesSecundarias();
   }
 
+  onNuevaSecundaria() {
+    const habilidad = new Habilidad('', 'xxx', 15, -1);
+    habilidad.descripcionLibre = true;
+    habilidad.aplicaProfesion = false;
+    habilidad.aplicaCar = false;
+    this.secundarias.push(habilidad);
+  }
 }

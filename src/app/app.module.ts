@@ -15,6 +15,7 @@ import { SignedNumberPipe } from './shared/signed-number.pipe';
 import { HabilidadDefensivaComponent } from './ficha-personaje/habilidades/habilidad-defensiva/habilidad-defensiva.component';
 import { DefensivasComponent } from './ficha-personaje/habilidades/defensivas/defensivas.component';
 import { PortalComponent } from './portal/portal.component';
+import { VistaPersonajeComponent } from './portal/vista-personaje/vista-personaje.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PortalComponent } from './portal/portal.component';
     SignedNumberPipe,
     HabilidadDefensivaComponent,
     DefensivasComponent,
-    PortalComponent
+    PortalComponent,
+    VistaPersonajeComponent
   ],
   imports: [
     BrowserModule,

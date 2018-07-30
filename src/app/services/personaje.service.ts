@@ -28,6 +28,10 @@ export class PersonajeService {
   private _dominiosPermitidos$: BehaviorSubject<string[]>;
   public dominiosObs$: Observable<string[]>;
 
+  obtenPersonaje() {
+    return this._data;
+  }
+
   obtenDatosGenerales() {
     return this._data.datos;
   }

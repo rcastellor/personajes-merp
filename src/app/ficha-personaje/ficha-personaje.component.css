@@ -38,6 +38,7 @@
 .DIBUJO {
     grid-area: DIBUJO;
     border: solid 1px black;
+    text-align: center;
 }
 
 

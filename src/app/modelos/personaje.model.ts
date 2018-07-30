@@ -18,6 +18,7 @@ import { Habilidad,
     TIRADA_BD,
     TIRADA_TR
 } from './habilidad.model';
+import { Dominio } from './dominio.model';
 
 export class Personaje {
 
@@ -25,10 +26,7 @@ export class Personaje {
     caracteristicas: Caracteristica[];
     idiomas: Idioma[];
     listas: ListaSortilegio[];
-    dominio: {
-        dominio: string;
-        ppoder: number
-    };
+    dominio: Dominio;
 
     habilidades: Habilidad[][];
     tr: Habilidad[];
