@@ -4,7 +4,6 @@ div {
 
 .grid-container {
     display: grid;
-    height: 100%;
     grid-template-columns: 110px 140px 99px 500px;
     grid-template-rows: auto;
     grid-template-areas: "GRADO GRADO GRADO BONIFICACIONES"
@@ -38,7 +37,6 @@ div {
 
 .grid-grados {
     display: grid;
-    height: 100%;
     grid-template-columns: 71px 71px 71px 71px 71px 71px 71px;
     grid-template-rows: auto;
     border: solid 1px black;
@@ -51,9 +49,7 @@ div {
 
 .grid-defensivas {
     display: grid;
-    height: 100%;
     grid-template-columns: 200px 149px;
-    grid-template-rows: auto;
     grid-template-areas: "DEF ."
                         "DEF ."
                         "DEF ."

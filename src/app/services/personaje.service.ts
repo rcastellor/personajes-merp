@@ -56,6 +56,10 @@ export class PersonajeService {
     return this._data.tr;
   }
 
+  obtenHabilidadesSecundarias() {
+    return this._data.secundarias;
+  }
+
   cambioEnDominio() {
     if (this._data.dominio.dominio === 'ESENCIA') {
       this._data.dominio.ppoder = calculaPoder(Number(this._data.caracteristicas[INT].valor));

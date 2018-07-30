@@ -44,5 +44,6 @@
 .HABILIDADES {
     grid-area: HABILIDADES;
     border: solid 1px black;
+    padding-bottom: 10px;
 }
 

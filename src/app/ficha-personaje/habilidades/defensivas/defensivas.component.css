@@ -2,7 +2,6 @@
     display: grid;
     height: 100%;
     grid-template-columns: auto auto;
-    grid-template-rows: auto;
     grid-template-areas: ". .";
     border: solid 1px black;
     padding: 5px;

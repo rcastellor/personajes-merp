@@ -38,4 +38,10 @@
     <app-habilidad-defensiva [habilidad]="habilidad" *ngFor="let habilidad of defensivas"></app-habilidad-defensiva>
   </div>
   <div class="TITULO_HAB">HABILIDADES SECUNDARIAS</div>
+  <div style="border-left: solid 1px black"></div>
+  <ng-template ngFor let-habilidad [ngForOf]="secundarias" let-i="index">
+      <div class='HABILIDAD'>
+        <app-habilidad [habilidad]="habilidad"></app-habilidad>
+      </div>
+    </ng-template>
 </div>

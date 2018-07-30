@@ -26,12 +26,14 @@ export class HabilidadesComponent implements OnInit {
 
   habilidades: Habilidad[][];
   defensivas: Habilidad[];
+  secundarias: Habilidad[];
 
   constructor(private pjService: PersonajeService) { }
 
   ngOnInit() {
     this.habilidades = this.pjService.obtenHabilidades();
     this.defensivas = this.pjService.obtenHabilidadesDefensivas();
+    this.secundarias = this.pjService.obtenHabilidadesSecundarias();
   }
 
 }
