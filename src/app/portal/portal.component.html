@@ -1,14 +1,9 @@
-<section>
+<div class="card">
+  <div class="titulo">Listado de personajes</div>
   <ul>
-    <li>
-      Personaje: BORZUNG
-      Raza: ENANO
-      Profesión: GUERRERO
-      Nivel: 5
-      DOMINIO: CANALIZACION Puntos Poder: 1 Listas: 1
-      Puntos de Golpe: 102
-      Arma preferida: Contundentes BO: 100
-      Bonificación defensiva: 25
+    <li *ngFor="let personaje of personajes">
+      <app-vista-personaje [personaje]="personaje"></app-vista-personaje>
     </li>
   </ul>
-</section>
+  <div class="titulo">Personajes: {{total}} - Página: <i class="fas fa-arrow-circle-left"></i> {{paginaActual + 1 }} de {{ paginas }} <i class="fas fa-arrow-circle-right"></i></div>
+</div>

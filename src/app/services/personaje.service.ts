@@ -7,6 +7,7 @@ import { ProfesionService } from './profesion.service';
 import { APA, INT, I, FUE, AGI, CON, PRE } from '../modelos/caracteristicas.model';
 import { ListaSortilegio } from '../modelos/lista-sortilegio.model';
 import { calculaBonificacion, calculaPoder } from '../shared/util';
+import { Habilidad } from '../modelos/habilidad.model';
 
 
 
@@ -96,7 +97,7 @@ export class PersonajeService {
     for (let k = 0; k < habilidades.length; k++) {
       for (let j = 0; j < habilidades[k].length; j++) {
         this._data.habilidades[k][j].gradoRaza = habilidades[k][j];
-        this._data.habilidades[k][j].reset();
+        this.reset(this._data.habilidades[k][j]);
       }
     }
     this._raza$.next(raza);
@@ -183,6 +184,9 @@ export class PersonajeService {
         return null;
     }
   }
+  definePersonaje(personaje: Personaje) {
+    this._data = personaje;
+  }
 
   constructor(private rzService: RazaService,
               private pfService: ProfesionService) {
@@ -201,5 +205,58 @@ export class PersonajeService {
 
     this._dominiosPermitidos$ = new BehaviorSubject([]);
     this.dominiosObs$ = this._dominiosPermitidos$.asObservable();
+  }
+
+  bonGrado(habilidad: Habilidad): number {
+    let valor = 0;
+    if ( habilidad.aplicaTiradas ) {
+        for (let i = 0; i < habilidad.grado; i++) {
+            if (habilidad.valorTiradas[i]) {
+                valor += habilidad.valorTiradas[i];
+            } else {
+                let tirada = 0;
+                do {
+                    tirada = Math.floor((Math.random() * 10) + 1);
+                } while (tirada < 4);
+                habilidad.valorTiradas[i] = tirada;
+                valor += tirada;
+            }
+        }
+    } else {
+        for (let i = 0; i < habilidad.grado; i++) {
+            if (i < 10) {
+                valor += 5;
+            } else if (i < 15) {
+                valor += 2;
+            }
+        }
+    }
+    if (habilidad.grado === 0) {
+        valor = -25;
+    }
+    return valor;
+}
+
+total(habilidad: Habilidad): number {
+    let valor = 0;
+    if (habilidad.aplicaGrado) {
+        valor += this.bonGrado(habilidad);
+    }
+    if (habilidad.aplicaCar) {
+        valor += Number(habilidad.caracteristica);
+    }
+    if (habilidad.aplicaProfesion) {
+        valor += Number(habilidad.profesion);
+    }
+    valor += Number(habilidad.objeto);
+    valor += Number(habilidad.especial);
+    valor += Number(habilidad.especial2);
+    return valor;
+  }
+
+  reset(habilidad: Habilidad) {
+    habilidad.grado = habilidad.gradoRaza;
+    habilidad.valorGrado = this.bonGrado(habilidad);
+    habilidad.valorTotal = this.total(habilidad);
   }
 }

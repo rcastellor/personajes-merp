@@ -32,24 +32,37 @@ export class HabilidadComponent implements OnInit, OnDestroy {
     for (let i = 0; i < (this.habilidad.gradoMaximo - 10) && i < 5; i++) {
       this.controles2.push({activado: false, readonly: false});
     }
-
+    if (this.habilidad.grado) {
+      this.gradoSeleccionado = this.habilidad.grado;
+    }
     const obs = this.pjService.obtenObservableCaracteristica(this.habilidad.abrCar);
     if (obs) {
       this.caracteristica = obs.subscribe(val => {
         this.habilidad.caracteristica = val;
-        this.habilidad.valorTotal = this.habilidad.total();
+        this.habilidad.valorTotal = this.pjService.total(this.habilidad);
       });
     }
     this.raza = this.pjService.razaObs$.subscribe( raza => {
       this.inicializaControles();
     });
+    if (this.habilidad.grado) {
+      if (this.habilidad.grado > this.habilidad.gradoRaza) {
+        if ( this.habilidad.grado < 10 ) {
+          this.seleccionaGrado5(this.habilidad.grado);
+        } else {
+          this.seleccionaGrado2(this.habilidad.grado - 10);
+        }
+      }
+    }
   }
 
   ngOnDestroy() {
     if (this.caracteristica) {
       this.caracteristica.unsubscribe();
     }
-    this.raza.unsubscribe();
+    if (this.raza) {
+      this.raza.unsubscribe();
+    }
   }
 
   inicializaControles() {
@@ -66,10 +79,12 @@ export class HabilidadComponent implements OnInit, OnDestroy {
       control.readonly = false;
       control.activado = false;
     }
+    this.habilidad.valorGrado = this.pjService.bonGrado(this.habilidad);
+    this.habilidad.valorTotal = this.pjService.total(this.habilidad);
   }
 
   onChange() {
-    this.habilidad.valorTotal = this.habilidad.total();
+    this.habilidad.valorTotal = this.pjService.total(this.habilidad);
   }
 
   seleccionaGrado5(index: number) {
@@ -92,8 +107,8 @@ export class HabilidadComponent implements OnInit, OnDestroy {
       control.activado = false;
     }
     this.habilidad.grado = this.gradoSeleccionado + 1;
-    this.habilidad.valorGrado = this.habilidad.bonGrado();
-    this.habilidad.valorTotal = this.habilidad.total();
+    this.habilidad.valorGrado = this.pjService.bonGrado(this.habilidad);
+    this.habilidad.valorTotal = this.pjService.total(this.habilidad);
   }
 
   seleccionaGrado2(index: number) {
@@ -114,8 +129,8 @@ export class HabilidadComponent implements OnInit, OnDestroy {
       }
     }
     this.habilidad.grado = this.gradoSeleccionado + 1;
-    this.habilidad.valorGrado = this.habilidad.bonGrado();
-    this.habilidad.valorTotal = this.habilidad.total();
+    this.habilidad.valorGrado = this.pjService.bonGrado(this.habilidad);
+    this.habilidad.valorTotal = this.pjService.total(this.habilidad);
   }
 
 }

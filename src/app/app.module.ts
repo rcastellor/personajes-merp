@@ -16,6 +16,10 @@ import { HabilidadDefensivaComponent } from './ficha-personaje/habilidades/habil
 import { DefensivasComponent } from './ficha-personaje/habilidades/defensivas/defensivas.component';
 import { PortalComponent } from './portal/portal.component';
 import { VistaPersonajeComponent } from './portal/vista-personaje/vista-personaje.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './/app-routing.module';
+import { NavbarComponent } from './portal/navbar/navbar.component';
+import { MaestrosComponent } from './maestros/maestros.component';
 
 
 @NgModule({
@@ -33,11 +37,15 @@ import { VistaPersonajeComponent } from './portal/vista-personaje/vista-personaj
     HabilidadDefensivaComponent,
     DefensivasComponent,
     PortalComponent,
-    VistaPersonajeComponent
+    VistaPersonajeComponent,
+    NavbarComponent,
+    MaestrosComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

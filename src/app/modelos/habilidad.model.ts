@@ -78,53 +78,6 @@ export class Habilidad {
     valorTotal: number;
     descripcionLibre: boolean;
 
-    bonGrado(): number {
-        let valor = 0;
-        if ( this.aplicaTiradas ) {
-            for (let i = 0; i < this.grado; i++) {
-                if (this.valorTiradas[i]) {
-                    valor += this.valorTiradas[i];
-                } else {
-                    let tirada = 0;
-                    do {
-                        tirada = Math.floor((Math.random() * 10) + 1);
-                    } while (tirada < 4);
-                    this.valorTiradas[i] = tirada;
-                    valor += tirada;
-                }
-            }
-        } else {
-            for (let i = 0; i < this.grado; i++) {
-                if (i < 10) {
-                    valor += 5;
-                } else if (i < 15) {
-                    valor += 2;
-                }
-            }
-        }
-        if (this.grado === 0) {
-            valor = -25;
-        }
-        return valor;
-    }
-
-    total(): number {
-        let valor = 0;
-        if (this.aplicaGrado) {
-            valor += this.bonGrado();
-        }
-        if (this.aplicaCar) {
-            valor += Number(this.caracteristica);
-        }
-        if (this.aplicaProfesion) {
-            valor += Number(this.profesion);
-        }
-        valor += Number(this.objeto);
-        valor += Number(this.especial);
-        valor += Number(this.especial2);
-        return valor;
-    }
-
     constructor(descripcion: string,
                 abr: string,
                 gradoMaximo: number,
@@ -153,14 +106,5 @@ export class Habilidad {
         } else {
             this.especial2sl = false;
         }
-
-        this.valorGrado = this.bonGrado();
-        this.valorTotal = this.total();
-    }
-
-    reset() {
-        this.grado = this.gradoRaza;
-        this.valorGrado = this.bonGrado();
-        this.valorTotal = this.total();
     }
 }

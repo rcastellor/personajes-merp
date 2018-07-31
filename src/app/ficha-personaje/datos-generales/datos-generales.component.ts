@@ -28,9 +28,18 @@ export class DatosGeneralesComponent implements OnInit {
 
   ngOnInit() {
     this.razas$ = this.rzService.obtenRazas();
-    this.profesiones$ = this.pfService._profesionesObs$;
+    this.profesiones$ = this.pfService.profesionesObs$;
 
     this.datos = this.pjService.obtenDatosGenerales();
+    if (this.datos.raza) {
+      this.raza = this.datos.raza.id;
+      // FIXME: Esto esta fatal aqui
+      this.pfService.razaSeleccionada(this.datos.raza.id);
+      console.log('euyeyeye', this.raza);
+    }
+    if (this.datos.profesion) {
+      this.profesion = this.datos.profesion.id;
+    }
   }
 
   onChangeRaza() {

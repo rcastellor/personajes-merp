@@ -10,7 +10,7 @@ import { ENANO } from '../modelos/raza.model';
 export class ProfesionService {
 
   private _profesionesPermitidas$: BehaviorSubject<Profesion[]>;
-  _profesionesObs$: Observable<Profesion[]>;
+  profesionesObs$: Observable<Profesion[]>;
 
   private _profesiones: Profesion[];
 
@@ -34,6 +34,7 @@ export class ProfesionService {
     for (const pr of this._profesionesRaza[raza]) {
       profesiones.push({...this._profesiones[pr]});
     }
+    console.log('next', profesiones);
     this._profesionesPermitidas$.next(profesiones);
   }
 
@@ -48,7 +49,7 @@ export class ProfesionService {
     ];
 
     this._profesionesPermitidas$ = new BehaviorSubject([]);
-    this._profesionesObs$ = this._profesionesPermitidas$.asObservable();
+    this.profesionesObs$ = this._profesionesPermitidas$.asObservable();
     this._dominiosProfesion = [];
     this._dominiosProfesion[GUERRERO] = ['ESENCIA', 'CANALIZACION'];
     this._dominiosProfesion[MAGO] = ['ESENCIA'];

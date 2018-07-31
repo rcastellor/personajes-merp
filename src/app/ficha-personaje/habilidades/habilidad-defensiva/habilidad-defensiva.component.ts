@@ -18,21 +18,23 @@ export class HabilidadDefensivaComponent implements OnInit, OnDestroy {
   constructor(private pjService: PersonajeService) { }
 
   ngOnInit() {
-    this.habilidad.valorTotal = this.habilidad.total();
+    this.habilidad.valorTotal = this.pjService.total(this.habilidad);
     const obs = this.pjService.obtenObservableCaracteristica(this.habilidad.abrCar);
     if (obs) {
       this.caracteristica = obs.subscribe(val => {
         this.habilidad.caracteristica = val;
-        this.habilidad.valorTotal = this.habilidad.total();
+        this.habilidad.valorTotal = this.pjService.total(this.habilidad);
       });
     }
   }
 
   ngOnDestroy() {
-    this.caracteristica.unsubscribe();
+    if (this.caracteristica) {
+      this.caracteristica.unsubscribe();
+    }
   }
 
   onChange() {
-    this.habilidad.valorTotal = this.habilidad.total();
+    this.habilidad.valorTotal = this.pjService.total(this.habilidad);
   }
 }
