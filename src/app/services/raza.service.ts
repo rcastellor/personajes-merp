@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Raza, ENANO, CAMPESINO } from '../modelos/raza.model';
 import { FUE, AGI, CON, INT, I, PRE, APA } from '../modelos/caracteristicas.model';
 import { MOVIMIENTO, ARMAS, GENERALES, SUBTERFUGIO, MAGICAS, OTRAS_HABILIDADES } from '../modelos/habilidad.model';
+import { GUERRERO, EXPLORADOR, MONTARAZ, ANIMISTA } from '../modelos/profesion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class RazaService {
   private _idiomasRazas = [];
   private _dominiosRaza: string[][];
   private _habilidadesRaza: number[][][];
+  private _imagenes: string[][];
 
 
   constructor() {
@@ -70,6 +72,13 @@ export class RazaService {
     this._habilidadesRaza[CAMPESINO][SUBTERFUGIO] = [0, 1, 0, 0];
     this._habilidadesRaza[CAMPESINO][MAGICAS] = [0, 0, 0];
     this._habilidadesRaza[CAMPESINO][OTRAS_HABILIDADES] = [1, 2];
+
+    this._imagenes = [];
+    this._imagenes[ENANO] = [];
+    this._imagenes[ENANO][GUERRERO] = 'assets/dwarf_animista.jpg';
+    this._imagenes[ENANO][EXPLORADOR] = 'assets/dwarf_animista.jpg';
+    this._imagenes[ENANO][MONTARAZ] = 'assets/dwarf_animista.jpg';
+    this._imagenes[ENANO][ANIMISTA] = 'assets/dwarf_animista.jpg';
   }
 
 
