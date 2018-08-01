@@ -2,37 +2,25 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    margin-bottom: 60px;
 }
 
-/* Style the navigation bar */
-.navbar {
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    cursor: pointer;
-  }
-  
-  /* Navbar links */
-  .navbar a {
-    float: left;
-    text-align: center;
-    padding: 12px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  /* Navbar links on mouse-over */
-  .navbar a:hover {
-    background-color: #000;
-  }
-  
-  /* Current/active navbar link */
-  .active {
-    background-color: #4CAF50;
-  }
-  
+
+.footer {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0; 
+  left: 0;
+  width: 100%; /* Full width */
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+}

@@ -7,7 +7,7 @@
   <div class="gcampo">
     <select name="raza" class="select_gcampo" [(ngModel)]="raza" (change)="onChangeRaza()">
       <option *ngFor="let raza of (razas$ | async)" value='{{raza.id}}'>{{raza.descripcion}}</option>
-    </select>
+    </select>Avatar: <button>A</button>
   </div>
   <div class="gtitulo">ESTATURA: </div>
   <div class="gcampo">
